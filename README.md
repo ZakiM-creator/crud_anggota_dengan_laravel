@@ -33,3 +33,6 @@
 # TESTING ROUTE
 
 ![Testing Route](screenshot/tgs2.png)
+
+# DATABASE
+![Database](screenshot\DB.png)
