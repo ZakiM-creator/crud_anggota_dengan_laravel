@@ -27,6 +27,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
+                        href="{{ route('dashboard') }}">
+                        <i class="bi bi-speedometer2 me-1"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="bi bi-arrow-left-right"></i> Transaksi
                     </a>

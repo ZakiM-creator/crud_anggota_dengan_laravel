@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Buku;
-use App\Models\Anggota;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\DashboardController;
 
 
 Route::get('/', function () {
@@ -16,13 +15,29 @@ Route::get('/', function () {
 //     return view('buku');
 // })->name('buku.index');
 
+// Custom route untuk filter kategori (harus SEBELUM resource route)
+Route::get('/buku/kategori/{kategori}', [BukuController::class, 'filterKategori'])->name('buku.kategori');
+
+// Route untuk dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+// Route untuk search & filter buku (harus SEBELUM resource route)
+Route::get('/buku/search', [BukuController::class, 'search'])->name('buku.search');
+
+// Custom route untuk filter kategori (harus SEBELUM resource route)
+Route::get('/buku/kategori/{kategori}', [BukuController::class, 'filterKategori'])->name('buku.kategori');
+
 // Resource route untuk Buku
 Route::resource('buku', BukuController::class);
 
+
+// Resource route untuk Buku
+Route::resource('buku', BukuController::class);
+
+// Resource route untuk Anggota
 Route::resource('anggota', AnggotaController::class);
 
-// Custom route untuk filter kategori
-Route::get('/buku/kategori/{kategori}', [BukuController::class, 'filterKategori'])->name('buku.kategori');
+
 
 
 // Route::get('anggota', function () {
